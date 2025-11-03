@@ -1,0 +1,13 @@
+You are building a small web app named LinkCheck using:
+- Next.js 14 (App Router), TypeScript, Tailwind, shadcn/ui.
+- No client-side env reads. Server-only flags:
+  - USE_DOMAIN_AGE (default true)
+  - USE_BRAND_MISMATCH (default true)
+- Keep logic in server files under /lib, no DB, no auth.
+- Implement: / (landing) and /check (UI + analyzer).
+- API: POST /api/check returns {label, score, target{original,display,baseDomain,via[]}, reasons[], meta{ageDays,isGateway,isVendorAsset}}; GET /api/check returns {ok:true}.
+- Reuse helper modules: unwrap.ts, link-classify.ts, domain-age.ts, brand-match.ts, score.ts.
+- Ship clean UX with Input, Textarea, Buttons, Card, Badge. Add “Copy Report.”
+- “Open Site” button must be disabled for HIGH risk.
+- Deep link: /check?link=… autoloads and analyzes.
+- No analytics. No storage. Privacy-first copy in footer.
